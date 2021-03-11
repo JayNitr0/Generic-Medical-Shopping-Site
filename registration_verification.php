@@ -3,10 +3,18 @@ session_start();
 require_once('Nikki_fns.php');
 
   $username=$_POST['username'];
+  $userage=$_POST['age'];
+  $emailaddress=$_POST['email_address'];
+  $phonenumber=$_POST['phone_number'];
+  $homeaddress=$_POST['home_address']
   $password=$_POST['password'];
   $confirm_password=$_POST['confirm_password'];
   try   {
    
+    //age does not pass threshold
+    if ($userage >= 18 || $userage <= 100) {
+      throw new Exception('please enter a valid age');
+    }
 
     // passwords not the same
     if ($password != $confirm_password) {
