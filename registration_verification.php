@@ -1,12 +1,12 @@
 <?php
 session_start();
-require_once('Nikki_fns.php');
+require_once('generic_fns.php');
 
   $username=$_POST['username'];
   $userage=$_POST['age'];
   $emailaddress=$_POST['email_address'];
   $phonenumber=$_POST['phone_number'];
-  $homeaddress=$_POST['home_address']
+  $homeaddress=$_POST['home_address'];
   $password=$_POST['password'];
   $confirm_password=$_POST['confirm_password'];
   try   {

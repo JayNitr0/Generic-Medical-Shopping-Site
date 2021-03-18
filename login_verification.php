@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('Nikki_fns.php');
+require_once('generic_fns.php');
 $db = db_connect();
 
 
@@ -18,7 +18,7 @@ $db = db_connect();
     
     //$password = md5($password);
     
-    $query = "SELECT user_type FROM user_types WHERE username = '".$username."' and password = '".$password."'";
+    $query = "SELECT user_email_address FROM user WHERE user_email_address = '".$username."' and user_password = '".$password."'";
     $result = $db->query($query);
     if (!$result) {
         throw new Exception('Could not execute query');
@@ -30,7 +30,6 @@ $db = db_connect();
         
         $_SESSION["logged"] = true;
         $_SESSION["username"] = $username;
-        $_SESSION["type"] = $type->user_type;
 
 
         header("Location: main_page.php");
