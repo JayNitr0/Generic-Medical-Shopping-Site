@@ -10,15 +10,19 @@ require_once('Nikki_fns.php');
   $password=$_POST['password'];
   $confirm_password=$_POST['confirm_password'];
   try   {
-   
+  
     //age does not pass threshold criteria 
-    if ($userage >= 18 || $userage <= 100) {
+    if ($userage >= 18 && $userage <= 100) {
       throw new Exception('please enter a valid age');
     }
 
     // passwords not the same
     if ($password != $confirm_password) {
       throw new Exception('The passwords you entered do not match - please go back and try again.');
+    }
+    //formates phonenumber of input
+    if (preg_match( '/^\+\d(\d{3})(\d{3})(\d{4})$/', $phonenumber, $matches)) {
+      $phonenumber = $matches[1] . '-' .$matches[2] . '-' . $matches[3];
     }
 
     // check password length is ok
