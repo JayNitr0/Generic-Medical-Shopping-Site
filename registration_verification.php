@@ -11,7 +11,7 @@ require_once('Nikki_fns.php');
   $confirm_password=$_POST['confirm_password'];
   try   {
    
-    //age does not pass threshold
+    //age does not pass threshold criteria 
     if ($userage >= 18 || $userage <= 100) {
       throw new Exception('please enter a valid age');
     }
