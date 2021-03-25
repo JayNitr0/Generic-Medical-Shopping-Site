@@ -44,14 +44,8 @@ function do_html_header($title, $header, $description) {
     </style>
   </head>
   <body>
-    <div class="title">
-        <h1><?php echo $header;?></h1>
-        <p><?php echo $description;?></p>
-        <div class="navigator">
-            <a class="active" href="#home">Home</a>
-            <a href="#cart" style="float:right;">Cart</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
+      
+  </body>
         </div>
     </div> 
   
@@ -62,36 +56,11 @@ function do_html_header($title, $header, $description) {
         </form>
   <?php }?>
 
-  <hr />
     <?php
     if(isset($_POST['log_out'])) {
         session_destroy();
         header("Location: login_page.html");
      }
-    do_admin_section();
-}
-
-function do_admin_section(){
-    if(isset(($_SESSION['type']))){
-        if($_SESSION['type'] == "Owner" || $_SESSION['type'] == 'Manager' ||$_SESSION['type'] == 'Employee'){
-            echo '<div style = "border:1px solid black; padding: 5px;">';
-            echo '<h1>Admin Section</h1>';
-            echo '<form method="post" action="check_receipts.php">
-            <input style="width: 100%;" type="submit" name="check_all_orders" value = "Check All Orders"/></form>';  
-            
-            if($_SESSION['type'] == "Owner" || $_SESSION['type'] == 'Manager'){
-                echo '<a href="insert.html" style="padding: 5px;">
-                <button type="submit">Insert Product</button>
-                </a>';
-                
-                if($_SESSION['type'] == "Owner"){
-                    echo '<a href="delete_product.html" style="padding: 5px;">
-                    <button type="submit">Delete Product</button>
-                    </a></div>'; 
-                }
-            }
-        }
-    }
 }
 
 function do_html_footer(){
