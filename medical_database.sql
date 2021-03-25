@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2021 at 08:53 PM
+-- Generation Time: Mar 25, 2021 at 08:49 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `medical_database`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order`
+--
+
+CREATE TABLE `order` (
+  `id (unique)` int(11) NOT NULL,
+  `line_total` int(11) NOT NULL,
+  `tax_percentage` int(11) NOT NULL,
+  `shipping_address_id` text NOT NULL,
+  `payment_method (foreign key)` text NOT NULL,
+  `Status (processing/shipped/delivered/cancelled)` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment`
+--
+
+CREATE TABLE `payment` (
+  `payment_id` int(11) NOT NULL,
+  `card_type` varchar(64) NOT NULL,
+  `card_number` int(32) NOT NULL,
+  `exp_date` varchar(32) NOT NULL,
+  `cvv` varchar(32) NOT NULL,
+  `billing_address` varchar(255) NOT NULL,
+  `cardholder__first` int(255) NOT NULL,
+  `cardholder_last` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -48,6 +80,12 @@ INSERT INTO `user` (`user_id`, `user_first`, `user_last`, `user_phone_number`, `
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `payment`
+--
+ALTER TABLE `payment`
+  ADD PRIMARY KEY (`payment_id`);
 
 --
 -- Indexes for table `user`
