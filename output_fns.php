@@ -89,17 +89,19 @@ function side_cart(){
    <ul class="cd-cart-items">
  </div>
  
- <?
+ <?php
  function purchase_product() {
 	$cost = $_POST['cost'];
 	$description = $_POST['description'];
 	$addToCart = $_POST['addToCart1'];
- }
-?>
-      <li>
+
+		if(ISSET($addToCart)) {
+			echo "You must press the Add to cart button in order to places your order"
+
+	 <li>
          	<div class = "product_card1">
 				<h1></h1>
-				<p id = "cost" name = "cost">$29.99</p>
+				<p id ="cost" name = "cost">$29.99</p>
 				<p name = "description">Some text about the product</p>
 				<p><input id = "product1" = type = "submit" value = "Add to Cart" name = "addToCart1"></p>
 			</div>
@@ -109,6 +111,8 @@ function side_cart(){
          <!-- ... -->
       </li>
    </ul> <!-- cd-cart-items -->
+		}
+   ?>
 
    <div class="cd-cart-total">
       <p>Total<span>$39.96</span></p>
