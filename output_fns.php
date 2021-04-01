@@ -87,8 +87,22 @@ function side_cart(){
 <div id="cd-cart">
    <h2>Cart</h2>
    <ul class="cd-cart-items">
+ </div>
+ 
+ <?
+ function purchase_product() {
+	$cost = $_POST['cost'];
+	$description = $_POST['description'];
+	$addToCart = $_POST['addToCart1'];
+ }
+?>
       <li>
-         <!-- ... -->
+         	<div class = "product_card1">
+				<h1></h1>
+				<p id = "cost" name = "cost">$29.99</p>
+				<p name = "description">Some text about the product</p>
+				<p><input id = "product1" = type = "submit" value = "Add to Cart" name = "addToCart1"></p>
+			</div>
       </li>
 
       <li>
@@ -97,7 +111,7 @@ function side_cart(){
    </ul> <!-- cd-cart-items -->
 
    <div class="cd-cart-total">
-      <p>Total <span>$39.96</span></p>
+      <p>Total<span>$39.96</span></p>
    </div> <!-- cd-cart-total -->
 
    <a href="#0" class="checkout-btn">Checkout</a>
