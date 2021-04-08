@@ -6,6 +6,10 @@ session_start();
 $title = "";
 $header = "";
 $description = "";
+$cost = "";
+$description = "";
+$addToCart = "";
 do_html_header($title, $header, $description);
+purchase_product($cost,$description,$addToCart);
 do_html_footer();
 ?>
