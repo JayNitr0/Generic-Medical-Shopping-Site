@@ -23,9 +23,9 @@ require_once('generic_fns.php');
     }
 
     //records home address of the client
-    if (preg_match('/^\\d+ [a-zA-Z ]+, \\d+ [a-zA-Z ]+, [a-zA-Z ]+$/', $address)
+    if (preg_match('/^\\d+ [a-zA-Z ]+, \\d+ [a-zA-Z ]+, [a-zA-Z ]+$/', $homeaddress)
 
-// Email Address not the same
+    // Email Address not the same
     if ($emailaddress != $confirm_emailaddress) {
       throw new Exception('The Email address you entered do not match - please go back and try again.');
     }
