@@ -12,12 +12,30 @@ $addToCart = "";
 do_html_header($title, $header, $description);
 purchase_product($cost,$description,$addToCart);
 
-	$cost = $_POST['cost'];
-	$description = $_POST['description'];
 	$addToCart = $_POST['addToCart'];
  
-		if(ISSET($addToCart)) {
-			echo "You must press the Add to Cart button in order to place your order."
+		$con = new PDO("mysql:host=localhost;dbname=medical_database",'root','');
+
+if (isset($_POST["addToCart"])) {
+	$sth = $con->prepare("SELECT * FROM `product` WHERE description = '$str'");
+
+	$sth->setFetchMode(PDO:: FETCH_OBJ);
+	$sth -> execute();
+
+	if($row = $sth->fetch())
+	{
+		?>
+		
+<?php 
+	}
+		
+		
+		else{
+			echo "Description Does not exist";
+		}
+
+
+}
 		
 		}
 ?>
@@ -34,7 +52,7 @@ purchase_product($cost,$description,$addToCart);
          <!-- ... -->
       </li>
    </ul> <!-- cd-cart-items -->
-   ?>
+
    
 <?php 
 do_html_footer();
