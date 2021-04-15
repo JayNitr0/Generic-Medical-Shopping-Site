@@ -12,8 +12,6 @@ $addToCart = "";
 do_html_header($title, $header, $description);
 purchase_product($cost,$description,$addToCart);
 
-	$addToCart = $_POST['addToCart'];
- 
 		$con = new PDO("mysql:host=localhost;dbname=medical_database",'root','');
 
 if (isset($_POST["addToCart"])) {
@@ -24,20 +22,19 @@ if (isset($_POST["addToCart"])) {
 
 	if($row = $sth->fetch())
 	{
-		?>
 		
-<?php 
 	}
 		
 		
+	
+		
+		
 		else{
-			echo "Description Does not exist";
+			echo "Description does not exist";
 		}
 
 
 }
-		
-		}
 ?>
 	 <li>
          	<div class = "product_card1">
@@ -53,6 +50,6 @@ if (isset($_POST["addToCart"])) {
       </li>
    </ul> <!-- cd-cart-items -->
 
-   
+  
 <?php 
 do_html_footer();
