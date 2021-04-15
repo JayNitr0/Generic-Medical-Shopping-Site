@@ -90,16 +90,17 @@ function side_cart(){
  </div>
  
  <?php
- 
+}
  function purchase_product() {
 	$cost = $_POST['cost'];
 	$description = $_POST['description'];
 	$addToCart = $_POST['addToCart'];
  
 		if(ISSET($addToCart)) {
-			echo "You must press the Add to Cart button in order to place your order."
+			echo "You must press the Add to Cart button in order to place your order.";
 		
 		}
+ 
 ?>
 	 <li>
          	<div class = "product_card1">
@@ -124,8 +125,7 @@ function side_cart(){
    <p class="cd-go-to-cart"><a href="#0">Go to cart page</a></p>
 </div> <!-- cd-cart -->
 <?php
-}
-
+ }
 
 
 ?>

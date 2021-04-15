@@ -4,4 +4,10 @@ function loggedIn(){
          header("Location: login_page.html");
      }
 }
+
+function permission(){
+	if($_SESSION["permission"] != "Privledged"){
+		header("Location: login_page.html");
+	}
+}
 ?>
