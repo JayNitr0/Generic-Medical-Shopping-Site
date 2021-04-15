@@ -4,14 +4,19 @@
 	<title>Search Bar using PHP</title>
 </head>
 <body>
-
+<!-- logo with tag -->
+    <div class="content"> 
+        <h1 style="color:green; padding-top:40px;"> 
+            Title
+        </h1> 
+          
 <!-- Navbar items -->
     <div id="navlist"> 
-        <a href="#">category1</a> 
-        <a href="#">category2</a> 
-        <a href="#">category3</a> 
-        <a href="#">category4</a> 
-        <a href="#">category5</a> 
+        <a href="Products.html">category1</a> 
+        <a href="Products.html">category2</a> 
+        <a href="Products.html">category3</a> 
+        <a href="Products.html">category4</a> 
+        <a href="Products.html">category5</a> 
 
 <form method="post">
 <label>Search</label>
