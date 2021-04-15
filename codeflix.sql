@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2021 at 06:50 PM
+-- Generation Time: Apr 15, 2021 at 12:04 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -38,9 +38,9 @@ CREATE TABLE `search` (
 --
 
 INSERT INTO `search` (`id`, `Name`, `Description`) VALUES
-(1, 'first name', 'Description of first name'),
-(2, 'second name', 'Description of second  name'),
-(3, 'third name', 'Description of third name');
+(1, 'first item', 'Description of first item'),
+(2, 'second item', 'Description of second item'),
+(3, 'third item', 'Description of third item');
 
 --
 -- Indexes for dumped tables
