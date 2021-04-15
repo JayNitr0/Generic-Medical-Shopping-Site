@@ -32,7 +32,7 @@ $db = db_connect();
         $_SESSION["username"] = $username;
 
 
-        header("Location: search.php");
+        header("Location: main_page.php");
 
     }
     else {

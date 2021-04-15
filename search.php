@@ -31,7 +31,7 @@
 
 <?php
 
-$con = new PDO("mysql:host=localhost;dbname=CodeFlix",'root','');
+// $con = new PDO("mysql:host=localhost;dbname=CodeFlix",'root','');
 
 if (isset($_POST["submit"])) {
 	$str = $_POST["search"];

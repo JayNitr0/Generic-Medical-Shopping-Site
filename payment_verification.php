@@ -26,15 +26,21 @@
     $cardholder_first=stripslashes($cardholder_first); 
     $cardholder_last=stripslashes($cardholder_last); 
     
-    function createUserPayment(){
+    function createUserPayment($card_type, $card_number, 
+    $exp_date, $cvv, $billing_address, $cardholder_first, $billing_address, 
+    $cardholder_first, $cardholder_last, $user_id){
         $query = "insert into payment values ('".$card_type."', '".$card_number."', 
         '".$exp_date."', '".$cvv."',
         '".$billing_address."','".$cardholder_first."',
         '".$cardholder_last."','".$user_id."')";
     }
-
+    
     function updateUserPayment(){
-
+        if (!$product_name || !$product_description || !$quantity || !$price || !$data) {
+     echo "You have not entered all the required details.<br />"
+          ."Please go back and try again.";
+     exit;
+  }
     }
 
     function deleteUserPayment(){
