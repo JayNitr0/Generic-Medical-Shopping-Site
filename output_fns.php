@@ -102,7 +102,6 @@ function side_cart(){
 		}
  
 ?>
-<a href="search.php" ">Banner page</a>
 	 <li>
          	<div class = "product_card1">
 				<h1></h1>
