@@ -51,16 +51,17 @@ function do_html_header($title, $header, $description) {
   
   <?php
   if(isset(($_SESSION['username']))){?>
-  <form method="post" >
-            <input style="width: 100%;" type="submit" name="log_out" value = "Log Out"/>
-        </form>
-  <?php }?>
+  
   <form action="search.php" method="post">
-  <div style="text-align:center; padding:5px;" id="addCardBtn">
+  <div style="text-align:center; padding:5px; width: 100%; " id="addCardBtn">
 				<input type="submit" formaction="search.php" name="search" value="Search">
 
 			</div>
       </form>
+  <form method="post" >
+            <input style="width: 100%;" type="submit" name="log_out" value = "Log Out"/>
+        </form>
+  <?php }?>
     <?php
     if(isset($_POST['log_out'])) {
         session_destroy();
@@ -187,11 +188,13 @@ function side_cart(){
     </div>
 
     <!-- Buttons -->
-    <form action="product_page.php" method="post">
+    <form action="payment_verification.php" method="post">
     <button type="submit" class="proceed-btn"><a href="#">Proceed</a></button>
     <button type="submit" class="paypal-btn"><a href="#">Pay With</a></button>
   </div>
   </form>
  <?php
  }
+
+
  ?>

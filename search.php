@@ -7,7 +7,7 @@
 <!-- logo with tag -->
     <div class="content"> 
         <h1 style="color:green; padding-top:40px;"> 
-            Title
+            Search
         </h1> 
           
 <!-- Navbar items -->
@@ -31,7 +31,7 @@
 
 <?php
 
-// $con = new PDO("mysql:host=localhost;dbname=CodeFlix",'root','');
+$con = new PDO("mysql:host=localhost;dbname=medical_database",'root','');
 
 if (isset($_POST["submit"])) {
 	$str = $_POST["search"];

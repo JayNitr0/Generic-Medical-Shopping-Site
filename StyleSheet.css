@@ -1,0 +1,96 @@
+input[type=submit] {
+    border: 1 solid white;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button {
+    border: 1 solid white;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.title {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    overflow: hidden;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 1.5;
+}
+
+.results {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 30%;
+    padding: 15px;
+    line-height: 1.5;
+}
+
+.card {
+    background-color: rgb(202, 202, 202);
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    width: 350px;
+    margin: auto;
+    overflow: hidden;
+    padding-left: 15px;
+    padding-right: 15px;
+    line-height: 1.5;
+}
+
+.price {
+    color: grey;
+}
+
+.card button {
+    padding: 12px;
+    border: 1 solid white;
+    outline: 0;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.card button:hover {
+    opacity: 0.5;
+}
+
+.table_style {
+    display: inline-block;
+    margin: auto;
+    padding: 10px;
+}
+
+.outer_table_style {
+    width: 100%;
+    text-align: center;
+}
+
+img {
+    border-radius: 10px;
+    width: 100%;
+}

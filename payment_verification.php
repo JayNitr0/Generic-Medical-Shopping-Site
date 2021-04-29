@@ -12,12 +12,16 @@
     $cardholder_last=$_POST['cardholder_last'];
     $user_id = $_POST['user_id'];
     
-    if (!$card_type || !$card_number || 
+    if (!$card_number || 
     !$exp_date || !$cvv || 
     !$cardholder_first || !$cardholder_last) {     
         echo 'You have not entered all credentials.';     
     exit;  
 } 
+    if(strlen($card_number) < 13 || strlen($card_number)> 19){
+        echo 'card number length is invalid.'; 
+        exit;
+    }
     $card_type=stripslashes($card_type);  
     $card_number=stripslashes($card_number); 
     $exp_date=stripslashes($exp_date); 
@@ -29,22 +33,24 @@
     function createUserPayment($card_type, $card_number, 
     $exp_date, $cvv, $billing_address, $cardholder_first, $billing_address, 
     $cardholder_first, $cardholder_last, $user_id){
+        $card_number = 
         $query = "insert into payment values ('".$card_type."', '".$card_number."', 
         '".$exp_date."', '".$cvv."',
         '".$billing_address."','".$cardholder_first."',
         '".$cardholder_last."','".$user_id."')";
     }
     
-    function updateUserPayment(){
-        if (!$product_name || !$product_description || !$quantity || !$price || !$data) {
-     echo "You have not entered all the required details.<br />"
-          ."Please go back and try again.";
-     exit;
-  }
+    function updateUserPayment($card_type, $card_number, 
+    $exp_date, $cvv, $billing_address, $cardholder_first, $billing_address, 
+    $cardholder_first, $cardholder_last, $user_id){
+        $query = "update payment set  values ('".$card_type."', '".$card_number."', 
+        '".$exp_date."', '".$cvv."',
+        '".$billing_address."','".$cardholder_first."',
+        '".$cardholder_last."','".$user_id."')";
     }
 
-    function deleteUserPayment(){
-        
+    function deleteUserPayment($payment_id){
+        $query = "delete from payment where payment_id = ".$payment_id;
     }
     
 ?>
