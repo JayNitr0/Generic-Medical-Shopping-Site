@@ -1,6 +1,5 @@
 Important:
-Create Database with name "allphptricks"
-then import the attached products.sql file
+import the attached products.sql file into medical_database
 
 
 this not finish yet,I will keep fix it.
