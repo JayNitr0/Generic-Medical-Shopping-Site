@@ -1,6 +1,0 @@
-Important:
-import the attached products.sql file into medical_database
-
-
-this not finish yet,I will keep fix it.
-tell me if you see any bugs
