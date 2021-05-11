@@ -122,14 +122,9 @@
     }
     
 ?>
-        <form method="post"> 
-                <?php 
-                echo '<input style="font-size:25px;width:5%" type="number" name="quantity" min=1 max ='.$in_stock.'>';
-                echo '<input type="hidden" name="username" value='.$username.'>';
-                echo '<input type="hidden" name="product_id" value= '.$product_id.'>';
-                ?>
-                <input style="width:13%;" type="submit" name="add_to_cart" value="Add To Cart"/> 
-        </form> 
+    
+				
+		
         <form method="post" action="main_page.php">
             <input style="width:20%" type="submit" name="home" value = "Home"/>
         </form>

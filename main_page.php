@@ -29,8 +29,8 @@ $result = $db->query($query);
 $num_results = $result->num_rows;
 echo '<div class= "results">';
 echo "<p>Number of products found: ".$num_results."</p>";
-echo '<form method = "post" action ="cart.php">
-        <input style="width:100%;"  type = "submit" name = "go_to_cart" value ="Cart"/></form>
+echo '<form method = "post" action ="cart_index.php">
+        <input style="width:100%;"  type = "submit" name = "go_to_cart" value ="order page"/></form>
         <form method="post" action="main_page.php">
         <input style="width:100%;" type="submit" name="show_all" value = "Full Catalog"/></form>';
 echo '</div>';
@@ -60,7 +60,7 @@ for ($i=0; $i <($num_results/3); $i++) {
         echo htmlspecialchars(stripslashes($row["name"]));
         echo '</strong><br/>';
         ini_set('memory_limit', '-1');
-        echo '<img src="data:image/jpg;base64,'.base64_encode( $row['img'] ).'"/>';
+        echo '<img src="data:image/jpg;base64,'.base64_encode( $row['img'] ).'" width="200px" height="200px" />';
         echo '<br/>Price: $';
         echo htmlspecialchars(stripslashes($row["price"]));
         echo '<br/>In Stock: ';

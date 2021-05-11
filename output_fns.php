@@ -52,12 +52,7 @@ function do_html_header($title, $header, $description) {
   <?php
   if(isset(($_SESSION['username']))){?>
   
-  <form action="search.php" method="post">
-  <div style="text-align:center; padding:5px; width: 100%; " id="addCardBtn">
-				<input type="submit" formaction="search.php" name="search" value="Search">
-
-			</div>
-      </form>
+  
   <form method="post" >
             <input style="width: 100%;" type="submit" name="log_out" value = "Log Out"/>
         </form>
@@ -79,58 +74,8 @@ function do_html_footer(){
 <?php 
 }
 
-function side_cart(){
-?>
-<header>
-   <!-- logo and menu here -->
-   <div id="cd-cart-trigger"><a class="cd-img-replace" href="#0">Cart</a></div>
-</header>
 
-<main>
-   <!-- content here -->
-</main>
 
-<div id="cd-shadow-layer"></div>
-
-<div id="cd-cart">
-   <h2>Cart</h2>
-   <ul class="cd-cart-items">
- </div>
- 
- <?php
-}
- function purchase_product() {
- 
-		if(ISSET($addToCart)) {
-			echo "You must press the Add to Cart button in order to place your order.";
-		
-		}
- 
-?>
-	 <li>
-         	<div class = "product_card1">
-				<h1></h1>
-				<p id ="cost" name = "cost">$29.99</p>
-				<p name = "description">Some text about the product</p>
-				<p><input id = "product1" = type = "submit" value = "Add to Cart" name = "addToCart"></p>
-			</div>
-      </li>
-
-      <li>
-         <!-- ... -->
-      </li>
-   </ul> <!-- cd-cart-items -->
-
-   <div class="cd-cart-total">
-      <p>Total<span>$39.96</span></p>
-   </div> <!-- cd-cart-total -->
-
-   <a href="#0" class="checkout-btn">Checkout</a>
-
-   <p class="cd-go-to-cart"><a href="#0">Go to cart page</a></p>
-</div> <!-- cd-cart -->
-<?php
- }
 
  function card_credentials_page() {
    ?>
