@@ -29,7 +29,7 @@ $total_products = $pdo->query('SELECT * FROM products')->rowCount();
         <a href="cart_index.php?page=product&id=<?=$product['product_id']?>" class="product">
 		
        
-		<img src="data:image/jpg;base64,<?php echo base64_encode($dnn['img']);?>" />
+		<img src="data:image/jpg;base64,<?php echo base64_encode($product['img']);?>" />
 		 
 		  
             <span class="name"><?=$product['name']?></span>

@@ -103,7 +103,8 @@ if ($products_in_cart) {
                 <tr>
                     <td class="img">
                         <a href="cart_index.php?page=product&id=<?=$product['product_id']?>">
-                          //img
+                          
+                        <img src="data:image/jpg;base64,<?php echo base64_encode($product['img']);?>" />    
                         </a>
                     </td>
                     <td>

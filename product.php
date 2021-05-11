@@ -20,7 +20,8 @@ if (isset($_GET['id'])) {
 
 <div class="product content-wrapper">
 
-	//img
+	
+    <img src="data:image/jpg;base64,<?php echo base64_encode($product['img']);?>" />
 
     
     <div>
