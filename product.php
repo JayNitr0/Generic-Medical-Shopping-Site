@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
 <div class="product content-wrapper">
 
 	
-    <img src="data:image/jpg;base64,<?php echo base64_encode($product['img']);?>" />
+      <img src="data:image/jpg;base64,<?php echo base64_encode($product['img']);?>"" width="200px" height="188px" />
 
     
     <div>
