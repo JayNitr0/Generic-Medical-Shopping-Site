@@ -53,9 +53,11 @@ function do_html_header($title, $header, $description) {
   </body>
         </div>
     </div> 
-  
+  <form method = "post" action ="cart_index.php">
+  <input style="width:100%;"  type = "submit" name = "go_to_cart" value ="order page"/></form>
+  <form method = "post" action ="add_card.php">
+  <input style="width:100%;"  type = "submit" name = "go_to_add_card" value ="Add Credit Card"/></form>
   <?php
-  
   $priv = strcmp($_SESSION['permission'], 'privileged');
   if($priv == 0){
     ?>
@@ -66,7 +68,7 @@ function do_html_header($title, $header, $description) {
         </form>
         <?php
   }
-  
+
   if(isset(($_SESSION['username']))){?>
   <form method="post" >
             <input style="width: 100%;" type="submit" name="log_out" value = "Log Out"/>
@@ -92,6 +94,11 @@ function do_html_footer(){
 
 
  function card_credentials_page() {
+  $title = "Generic Medical Website";
+  $header = "Generic Medical Website Card Information";
+  $description = "Add Credit Card to account";
+  do_html_header($title, $header, $description)
+    
    ?>
 
   <form class="credit-card">
@@ -148,8 +155,8 @@ function do_html_footer(){
 
     <!-- Buttons -->
     <form action="payment_verification.php" method="post">
-    <button type="submit" class="proceed-btn"><a href="#">Proceed</a></button>
-    <button type="submit" class="paypal-btn"><a href="#">Pay With</a></button>
+    <!-- <button type="submit" class="proceed-btn"><a href="#">Proceed</a></button>
+    <button type="submit" class="paypal-btn"><a href="#">Pay With</a></button> -->
   </div>
   </form>
  <?php

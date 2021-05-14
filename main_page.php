@@ -28,9 +28,7 @@ $result = $db->query($query);
 $num_results = $result->num_rows;
 echo '<div class= "results">';
 echo "<p>Number of products found: ".$num_results."</p>";
-echo '<form method = "post" action ="cart_index.php">
-        <input style="width:100%;"  type = "submit" name = "go_to_cart" value ="order page"/></form>
-        <form method="post" action="main_page.php">
+echo '<form method="post" action="main_page.php">
         <input style="width:100%;" type="submit" name="show_all" value = "Full Catalog"/></form>';
 echo '</div>';
 echo '<div class= "results">';
