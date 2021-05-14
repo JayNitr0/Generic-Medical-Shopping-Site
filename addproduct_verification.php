@@ -6,6 +6,7 @@ $db = db_connect();
 	$ItemName=$_POST['ItemID'];  
     $Quantity=$_POST['Quantity'];
 	$Price=$_POST['ItemPrice'];
+	$ItemDesc=$_POST['Description'];
 	
 	/*
 	if(!$ItemName || !$Quantity || !$Price){
@@ -16,8 +17,9 @@ $db = db_connect();
 	$ItemName  = stripslashes($ItemName);    
     $Quantity = stripslashes($Quantity);
 	$Price = stripslashes($Price);
+	$ItemDesc = stripslashes($ItemDesc);
 	
-	$query = "INSERT INTO `items` (`ID (unique)`, `Quantity`, `Item_Price`) VALUES ('".$ItemName."', ".$Quantity.", ".$Price.")";
+	$query = "INSERT INTO `items` (`ID (unique)`, `Quantity`, `Item_Price`) VALUES ('".$ItemName."', '".$ItemDesc."', ".$Quantity.", ".$Price.")";
 	
 	if ($db->query($query) === TRUE){
 		echo "New item added successfully.";

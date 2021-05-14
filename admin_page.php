@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-session_start();
-require_once('generic_fns.php');
-permission();
+//session_start();
+//require_once('generic_fns.php');
+//permission();
 ?>
 <html>
 
@@ -34,17 +34,20 @@ permission();
 <body>
 
     <div id="admincommands">
-        <form action="add_product.php" method="post">
+        <form action="admin_orders.php" method="post">
             <h1>Admin</h1>
 
-            <div style="text-align:center; padding:5px;" id="AddProduct">
-                <input type="submit" name="addproduct" value="Add Product">
+            <div style="text-align:center; padding:5px;" id="UpdateProduct">
+                <input type="submit" name="Updateproduct" value="View Products">
+            </div>
+			<div style="text-align:center; padding:5px;" id="AddProduct">
+                <input type="submit" name="addproduct" value="Add Product" formaction="add_product.php">
             </div>
 			<div style="text-align:center; padding:5px;" id="ViewOrders">
-				<input type="submit" name="vieworders" value="View Orders">
+				<input type="submit" name="vieworders" value="View Orders" formaction="view_orders.php">
 			</div>
 			<div style="text-align:center;" id="ViewUsers">
-                <input type="submit" name="viewusers" value="View Users">
+                <input type="submit" name="viewusers" value="View Users" formaction="view_users.php">
             </div>		
         </form>
     </div>
