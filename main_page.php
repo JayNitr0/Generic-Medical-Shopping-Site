@@ -5,12 +5,11 @@ session_start();
 require_once('generic_fns.php');
 $db = db_connect();
 $title = "Generic Medical Website";
-$header = "";
-$description = "";
-$cost = "";
-$description = "";
-$addToCart = "";
+$header = "Generic Medical Website Catalog";
+$description = "Catalog of products";
+$user = $_SESSION["username"];
 do_html_header($title, $header, $description);
+
 
 $query = "select * from products";
 if(isset($_POST['search']) && isset($_POST['searchterm'])) {

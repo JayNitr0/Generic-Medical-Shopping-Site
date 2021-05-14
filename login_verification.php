@@ -18,19 +18,18 @@ $db = db_connect();
     
     //$password = md5($password);
     
-    $query = "SELECT user_email_address FROM user WHERE user_email_address = '".$username."' and user_password = '".$password."'";
+    $query = "SELECT user_permission FROM user WHERE user_email_address = '".$username."' and user_password = '".$password."'";
     $result = $db->query($query);
     if (!$result) {
         throw new Exception('Could not execute query');
     }
-    $row = $result->num_rows;
 
-    $type = $result->fetch_object();
+    $row = $result->num_rows;
+    $permission = $result->fetch_object();
     if($row == 1){
-        
+        $_SESSION['permission'] = $permission->user_permission;
         $_SESSION["logged"] = true;
         $_SESSION["username"] = $username;
-
 
         header("Location: main_page.php");
 

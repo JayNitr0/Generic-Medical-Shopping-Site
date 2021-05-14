@@ -6,7 +6,7 @@ function loggedIn(){
 }
 
 function permission(){
-	if($_SESSION["permission"] != "Privledged"){
+	if((strcmp($_SESSION['permission'], 'privileged') != 0)){
 		header("Location: login_page.html");
 	}
 }

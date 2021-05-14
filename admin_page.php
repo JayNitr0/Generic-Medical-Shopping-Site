@@ -10,7 +10,7 @@ permission();
     <title>Admin</title>
     <style>
         #loginLabel {
-            font-fmaily: arial;
+            font-family: arial;
         }
         
         #admincommands {

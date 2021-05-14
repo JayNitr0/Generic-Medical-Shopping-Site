@@ -44,20 +44,34 @@ function do_html_header($title, $header, $description) {
     </style>
   </head>
   <body>
+  <div class="title">
+        <h1><?php echo $header;?></h1>
+        <p><?php echo $description;?></p>
+        </div>
+    </div> 
       
   </body>
         </div>
     </div> 
   
   <?php
+  
+  $priv = strcmp($_SESSION['permission'], 'privileged');
+  if($priv == 0){
+    ?>
+    <form method="post">
+    <div style="text-align:center; padding:5px;" id="adminBtn">
+				<input style="width: 100%;" type="submit" formaction="admin_page.php" name="admin" value="Admin">
+			</div>
+        </form>
+        <?php
+  }
+  
   if(isset(($_SESSION['username']))){?>
-  
-  
   <form method="post" >
             <input style="width: 100%;" type="submit" name="log_out" value = "Log Out"/>
         </form>
-  <?php }?>
-    <?php
+  <?php }
     if(isset($_POST['log_out'])) {
         session_destroy();
         header("Location: login_page.html");
