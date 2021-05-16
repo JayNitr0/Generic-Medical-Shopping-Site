@@ -1,33 +1,13 @@
 <!DOCTYPE html>
 <?php
-//session_start();
-//require_once('generic_fns.php');
+session_start();
+require_once('generic_fns.php');
 //permission();
+$title = "Generic Medical Website";
+$header = "Admin";
+$description = "Admin user controls";
+do_html_header($title, $header, $description);
 ?>
-<html>
-
-<head>
-    <title>Admin</title>
-    <style>
-        #loginLabel {
-            font-family: arial;
-        }
-        
-        #admincommands {
-            max-width: 700px;
-            padding-top: 40px;
-            padding-left: 15px;
-            padding-right: 15px;
-            text-align: center;
-            margin: auto;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        }
-        
-        #loginBtn:hover {
-            font-family: arial;
-        }
-    </style>
-</head>
 
 
 

@@ -5,42 +5,53 @@ function do_html_header($title, $header, $description) {
     <head>
     <title><?php echo $title;?></title>
     <link href="StyleSheet.css" rel="stylesheet"/>
-    <style>
-        /* Add a black background color to the top navigation */
+            <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
 
-.navigator {
-    background-color: rgb(0, 0, 0);
-    overflow: hidden;
-}
+        .topnav {
+          overflow: hidden;
+          background-color: #000;
+        }
 
+        .topnav a {
+          float: left;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
 
-/* Style the links inside the navigation bar */
+        .topnav a:hover {
+          background-color: #ddd;
+          color: black;
+        }
 
-.navigator a {
-    float: left;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-
-/* Change the color of links on hover */
-
-.navigator a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-
-/* Add a color to the active/current link */
-
-.navigator a.active {
-    background-color: #4CAF50;
-    color: white;
-}
-
+        .topnav a.active {
+          background-color: #04AA6D;
+          color: white;
+        }
+        
+        #loginLabel {
+            font-family: arial;
+        }
+        
+        #admincommands {
+            max-width: 700px;
+            padding-top: 40px;
+            padding-left: 15px;
+            padding-right: 15px;
+            text-align: center;
+            margin: auto;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        }
+        
+        #loginBtn:hover {
+            font-family: arial;
+        }
     </style>
   </head>
   <body>
@@ -54,37 +65,19 @@ function do_html_header($title, $header, $description) {
         </div>
     </div> 
 
-    <!-- <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">WebSiteName</a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Order</a></li>
-          <li><a href="#">Add Card</a></li>
-          <li><a href="#">Log Out</a></li>
-        </ul>
-      </div>
-    </nav> -->
-  <form method = "post" action ="main_page.php">
-  <input style="width:100%;"  type = "submit" name = "go_to_home" value ="Home"/></form>
-  <form method = "post" action ="cart_index.php">
-  <input style="width:100%;"  type = "submit" name = "go_to_cart" value ="Order"/></form>
-  <form method = "post" action ="add_card.php">
-  <input style="width:100%;"  type = "submit" name = "go_to_add_card" value ="Add Credit Card"/></form>
+    
+<div class="topnav">
+  <a class="active" href="main_page.php">Home</a>
+  <a href="cart_index.php">Order</a>
+  <a href="add_card.php">Add Card</a>
   <?php 
   $priv = strcmp($_SESSION['permission'], 'privileged');
-  if($priv == 0){
+  if($priv == 0){ 
     ?>
-    <form method="post">
-    <div style="text-align:center; padding:5px;" id="adminBtn">
-				<input style="width: 100%;" type="submit" formaction="admin_page.php" name="admin" value="Admin">
-			</div>
-        </form>
-        <?php
-  }
-
+  <a href="admin_page.php">Admin</a>
+  <?php } ?>
+</div>
+<?php 
   if(isset(($_SESSION['username']))){?>
   <form method="post" >
             <input style="width: 100%;" type="submit" name="log_out" value = "Log Out"/>
