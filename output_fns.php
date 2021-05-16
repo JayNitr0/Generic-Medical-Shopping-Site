@@ -53,11 +53,27 @@ function do_html_header($title, $header, $description) {
   </body>
         </div>
     </div> 
+
+    <!-- <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Order</a></li>
+          <li><a href="#">Add Card</a></li>
+          <li><a href="#">Log Out</a></li>
+        </ul>
+      </div>
+    </nav> -->
+  <form method = "post" action ="main_page.php">
+  <input style="width:100%;"  type = "submit" name = "go_to_home" value ="Home"/></form>
   <form method = "post" action ="cart_index.php">
-  <input style="width:100%;"  type = "submit" name = "go_to_cart" value ="order page"/></form>
+  <input style="width:100%;"  type = "submit" name = "go_to_cart" value ="Order"/></form>
   <form method = "post" action ="add_card.php">
   <input style="width:100%;"  type = "submit" name = "go_to_add_card" value ="Add Credit Card"/></form>
-  <?php
+  <?php 
   $priv = strcmp($_SESSION['permission'], 'privileged');
   if($priv == 0){
     ?>
@@ -94,6 +110,8 @@ function do_html_footer(){
 
 
  function card_credentials_page() {
+
+  
   $title = "Generic Medical Website";
   $header = "Generic Medical Website Card Information";
   $description = "Add Credit Card to account";
@@ -101,63 +119,64 @@ function do_html_footer(){
     
    ?>
 
-  <form class="credit-card">
-  <div class="form-header">
-    <h4 class="title">Credit card detail</h4>
-  </div>
-
-  <div class="form-body">
-    <!-- Card Number -->
-    <input type="text" class="card-number" placeholder="Card Number">
-
-    <!-- Date Field -->
-    <div class="date-field">
-      <div class="month">
-        <select name="Month">
-          <option value="january">January</option>
-          <option value="february">February</option>
-          <option value="march">March</option>
-          <option value="april">April</option>
-          <option value="may">May</option>
-          <option value="june">June</option>
-          <option value="july">July</option>
-          <option value="august">August</option>
-          <option value="september">September</option>
-          <option value="october">October</option>
-          <option value="november">November</option>
-          <option value="december">December</option>
-        </select>
-      </div>
-      <div class="year">
-        <select name="Year">
-          <option value="2016">2016</option>
-          <option value="2017">2017</option>
-          <option value="2018">2018</option>
-          <option value="2019">2019</option>
-          <option value="2020">2020</option>
-          <option value="2021">2021</option>
-          <option value="2022">2022</option>
-          <option value="2023">2023</option>
-          <option value="2024">2024</option>
-        </select>
-      </div>
+  <form class="credit-card" action="payment_verification.php" method="post">
+    <div class="form-header">
+      <h4 class="title">Credit card detail</h4>
     </div>
 
-    <!-- Card Verification Field -->
-    <div class="card-verification">
-      <div class="cvv-input">
-        <input type="text" placeholder="CVV">
-      </div>
-      <div class="cvv-details">
-        <p>3 or 4 digits usually found <br> on the signature strip</p>
-      </div>
-    </div>
+    <div class="form-body">
+      <!-- Card Number -->
+      <input name="card_number" type="text" class="credit-card" placeholder="Card Number" maxlength = 19>
 
-    <!-- Buttons -->
-    <form action="payment_verification.php" method="post">
-    <!-- <button type="submit" class="proceed-btn"><a href="#">Proceed</a></button>
-    <button type="submit" class="paypal-btn"><a href="#">Pay With</a></button> -->
-  </div>
+      <!-- Date Field -->
+      <div class="date-field">
+        <div class="credit-card">
+          <select name="Month">
+            <option value="january">January</option>
+            <option value="february">February</option>
+            <option value="march">March</option>
+            <option value="april">April</option>
+            <option value="may">May</option>
+            <option value="june">June</option>
+            <option value="july">July</option>
+            <option value="august">August</option>
+            <option value="september">September</option>
+            <option value="october">October</option>
+            <option value="november">November</option>
+            <option value="december">December</option>
+          </select>
+        </div>
+        <div class="credit-card">
+          <select name="Year">
+            <option value="2016">2021</option>
+            <option value="2017">2022</option>
+            <option value="2018">2023</option>
+            <option value="2019">2024</option>
+            <option value="2020">2025</option>
+            <option value="2021">2026</option>
+            <option value="2022">2027</option>
+            <option value="2023">2028</option>
+            <option value="2024">2029</option>
+            <option value="2025">2030</option>
+            <option value="2026">2031</option>
+          </select>
+          </select>
+        </div>
+      </div>
+
+      <!-- Card Verification Field -->
+      <div class="credit-card">
+        <div class="credit-card">
+          <input name="CVV" type="text" placeholder="CVV" maxlength = 4>
+        </div>
+        <div class="credit-card">
+          <p>3 or 4 digits usually found <br> on the signature strip</p>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <button type="submit" class= "credit-card">Proceed</a></button>
+    </div>
   </form>
  <?php
  }

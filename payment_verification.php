@@ -1,20 +1,21 @@
 <?php
+
     session_start();
     require_once('generic_fns.php');
     $db = db_connect();
+    $title = "Generic Medical Website";
+    $header = "Generic Medical Card Page";
+    $description = "Card details";
+    do_html_header($title, $header, $description);
 
-    $card_type=$_POST['username'];  
+    $username=$_SESSION['username'];  
     $card_number=$_POST['card_number']; 
-    $exp_date=$_POST['exp_date']; 
-    $cvv=$_POST['cvv']; 
-    $billing_address=$_POST['billing_address']; 
-    $cardholder_first=$_POST['cardholder_first']; 
-    $cardholder_last=$_POST['cardholder_last'];
-    $user_id = $_POST['user_id'];
+    $exp_date_month=$_POST['Month']; 
+    $exp_date_year=$_POST['Year'];
+    $cvv=$_POST['CVV'];
     
     if (!$card_number || 
-    !$exp_date || !$cvv || 
-    !$cardholder_first || !$cardholder_last) {     
+    !$exp_date_month || !$exp_date_year || !$cvv) {     
         echo 'You have not entered all credentials.';     
     exit;  
 } 
@@ -22,35 +23,31 @@
         echo 'card number length is invalid.'; 
         exit;
     }
-    $card_type=stripslashes($card_type);  
-    $card_number=stripslashes($card_number); 
-    $exp_date=stripslashes($exp_date); 
-    $cvv=stripslashes($cvv); 
-    $billing_address=stripslashes($billing_address); 
-    $cardholder_first=stripslashes($cardholder_first); 
-    $cardholder_last=stripslashes($cardholder_last); 
     
-    function createUserPayment($card_type, $card_number, 
-    $exp_date, $cvv, $billing_address, $cardholder_first, $billing_address, 
-    $cardholder_first, $cardholder_last, $user_id){
-        $card_number = 
-        $query = "insert into payment values ('".$card_type."', '".$card_number."', 
-        '".$exp_date."', '".$cvv."',
-        '".$billing_address."','".$cardholder_first."',
-        '".$cardholder_last."','".$user_id."')";
-    }
-    
-    function updateUserPayment($card_type, $card_number, 
-    $exp_date, $cvv, $billing_address, $cardholder_first, $billing_address, 
-    $cardholder_first, $cardholder_last, $user_id){
-        $query = "update payment set  values ('".$card_type."', '".$card_number."', 
-        '".$exp_date."', '".$cvv."',
-        '".$billing_address."','".$cardholder_first."',
-        '".$cardholder_last."','".$user_id."')";
-    }
 
-    function deleteUserPayment($payment_id){
-        $query = "delete from payment where payment_id = ".$payment_id;
+    $query = "SELECT user_id FROM user WHERE user_email_address = '".$username."'";
+    $result = $db->query($query);
+    if (!$result) {
+        throw new Exception('Could not execute query');
+    }
+    $user_id = $result->fetch_object();
+    $user_id = (int) $user_id->user_id;
+    $card_number= "8675309";
+
+    if (!get_magic_quotes_gpc()) {
+        $card_number = addslashes($card_number);
+        $exp_date_month = addslashes($exp_date_month);
+        $exp_date_year =addslashes($exp_date_year);
+        $cvv =addslashes($cvv);
+        $user_id =addslashes($user_id);
+    }
+    $query = "insert into payment values(NULL, '".$card_number."', '".$exp_date_month."', '".$exp_date_year."','".$cvv."', '".$user_id."')";
+    $result = $db->query($query);
+    if ($result) {
+        echo  $db->affected_rows." card inserted into database. (but as 8675309 as card number)";
+    } else {
+            echo "An error has occurred #2.  The item was not added.";
     }
     
+    $db->close();
 ?>
