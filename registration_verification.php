@@ -33,6 +33,8 @@ $db=db_connect();
       $phonenumber = $matches[1] . '-' .$matches[2] . '-' . $matches[3];
     }
 
+    if (preg_match( "/^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+.([a-zA-Z]{2,4})$/", $emailaddress, $matches)){}
+
     // check password length is ok
     // ok if username truncates, but passwords will get
     // munged if they are too long.
