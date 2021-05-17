@@ -28,6 +28,9 @@ $db=db_connect();
     if ($password != $confirm_password) {
       throw new Exception('The passwords you entered do not match - please go back and try again.');
     }
+
+    $password_hashed = password_hash($password, PASSWORD_DEFAULT);
+
     //formats phonenumber of input
     if (preg_match( '/^\+\d(\d{3})(\d{3})(\d{4})$/', $phonenumber, $matches)) {
       $phonenumber = $matches[1] . '-' .$matches[2] . '-' . $matches[3];
@@ -55,7 +58,7 @@ $db=db_connect();
      exit;
     }
     
-    $query_insert = "insert into user values ('2', '".$firstname."', '".$lastname."', '".$phonenumber."', '".$emailaddress."', '".$password."', 'Privledged', '1')";
+    $query_insert = "insert into user values ('2', '".$firstname."', '".$lastname."', '".$phonenumber."', '".$emailaddress."', '".$password_hashed."', 'Privledged', '1')";
     $result_insert = $db->query($query_insert);
     if($result_insert){
         echo "Successfully registered.";
