@@ -58,7 +58,7 @@ $db=db_connect();
      exit;
     }
     
-    $query_insert = "insert into user values ('2', '".$firstname."', '".$lastname."', '".$phonenumber."', '".$emailaddress."', '".$password_hashed."', 'Privledged', '1')";
+    $query_insert = "insert into user values (Null, '".$firstname."', '".$lastname."', '".$phonenumber."', '".$emailaddress."', '".$password_hashed."', '', '1')";
     $result_insert = $db->query($query_insert);
     if($result_insert){
         echo "Successfully registered.";
