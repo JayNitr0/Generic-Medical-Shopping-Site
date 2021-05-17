@@ -1,8 +1,8 @@
 
 <?php
 
-    require_once('generic_fns.php');
     session_start();
+    require_once('generic_fns.php');
     
     $db = db_connect(); 
     card_credentials_page();

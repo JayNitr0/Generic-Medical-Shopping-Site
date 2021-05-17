@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2021 at 06:35 PM
+-- Generation Time: May 17, 2021 at 07:02 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -143,9 +143,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `user_first`, `user_last`, `user_phone_number`, `user_email_address`, `user_password`, `user_permission`, `user_verified`) VALUES
-(5, 'Alec', 'Dipasquale', '7327625294', 'alecdipasquale@gmail.com', '$2y$10$om70nEa42XyuoQUaO4VzKuuGgBCVQgQfCcjCEL2PvG76tQtHkHXN2', 'privileged', 1),
-(8, 'alec1', 'dipa1', '732', 'alec1@gmail.com', '$2y$10$e2H1k2bAmM4jfOo.iC9iHuhFAxqzYbRD.ZnvZ8EYgTD.0WukWQwOe', '', 1),
-(9, 'alec5', 'alec5', '321', 'alec5@gmail.com', '$2y$10$rcizQARFJbv56ZGTX5eTjebie3a4apGNWcdfUIXkvq2PfNIowkaJK', '', 1);
+(5, 'Alec', 'Dipasquale', '7327625294', 'alecdipasquale@gmail.com', '$2y$10$om70nEa42XyuoQUaO4VzKuuGgBCVQgQfCcjCEL2PvG76tQtHkHXN2', 'privileged', 1);
 
 --
 -- Indexes for dumped tables
@@ -168,8 +166,7 @@ ALTER TABLE `search`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `user_email_address` (`user_email_address`),
-  ADD UNIQUE KEY `user_phone_number` (`user_phone_number`);
+  ADD UNIQUE KEY `user_email_address` (`user_email_address`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -191,7 +188,7 @@ ALTER TABLE `search`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

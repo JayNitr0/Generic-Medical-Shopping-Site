@@ -49,16 +49,16 @@ $db=db_connect();
      exit;
   }
   
-    $query = "select username from user_type where username = '".$username."'";
+    $query = "select username from user_type where username = '".$emailaddress."'";
     $result = $db->query($query);
     
     
     if($result){
-     echo 'Username already exists';
+     echo 'Email already in use';
      exit;
     }
     
-    $query_insert = "insert into user values (Null, '".$firstname."', '".$lastname."', '".$phonenumber."', '".$emailaddress."', '".$password_hashed."', '', '1')";
+    $query_insert = "insert into user values ( Null, '".$firstname."', '".$lastname."', '".$phonenumber."', '".$emailaddress."', '".$password_hashed."', '', '1')";
     $result_insert = $db->query($query_insert);
     if($result_insert){
         echo "Successfully registered.";
@@ -66,8 +66,8 @@ $db=db_connect();
         echo "Query failed";
         exit;
     }
-    
-    
+      
+    $db->close();
     
 
 ?>
