@@ -1,8 +1,11 @@
 <?php
 session_start();
 require_once('generic_fns.php');
+$db=db_connect();
 
   $username=$_POST['username'];
+  $firstname=$_POST['firstname'];
+  $lastname=$_POST['lastname'];
   $userage=$_POST['age'];
   $emailaddress=$_POST['email'];
   $phonenumber=$_POST['phonenumber'];
@@ -50,12 +53,13 @@ require_once('generic_fns.php');
      exit;
     }
     
-    $query_insert = "insert into user_types values ('".$username."', '".$password."', 'User')";
+    $query_insert = "insert into user values ('2' '".$firstname."', '".$lastname."', '".$phonenumber."', '".$emailaddress."', '".$password."', 'Privledged', '1')";
     $result_insert = $db->query($query_insert);
     if($result_insert){
         echo "Successfully registered.";
     } else{
         echo "Query failed";
+        echo $result_insert;
         exit;
     }
     
