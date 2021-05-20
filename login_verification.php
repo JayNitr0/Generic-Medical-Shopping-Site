@@ -17,19 +17,16 @@ $db = db_connect();
     $password = stripslashes($password);
     
     //$password = md5($password);
-    $password_hashed = password_hash($password, PASSWORD_DEFAULT);
-    $query = "SELECT user_permission, user_password FROM user WHERE user_email_address = '".$username."'";
+    
+    $query = "SELECT user_permission FROM user WHERE user_email_address = '".$username."' and user_password = '".$password."'";
     $result = $db->query($query);
     if (!$result) {
         throw new Exception('Could not execute query');
     }
 
-
     $row = $result->num_rows;
     $permission = $result->fetch_object();
-    $password_success = $permission->user_password;
-    $verify = password_verify($password, $password_success);
-    if($row == 1 && $verify){
+    if($row == 1){
         $_SESSION['permission'] = $permission->user_permission;
         $_SESSION["logged"] = true;
         $_SESSION["username"] = $username;
