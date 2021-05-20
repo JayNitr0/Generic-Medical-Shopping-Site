@@ -19,7 +19,7 @@ $db = db_connect();
 	$Price = stripslashes($Price);
 	$ItemDesc = stripslashes($ItemDesc);
 	
-	$query = "INSERT INTO `items` (`ID (unique)`, `Quantity`, `Item_Price`) VALUES ('".$ItemName."', '".$ItemDesc."', ".$Quantity.", ".$Price.")";
+	$query = "INSERT INTO `items` (`name`, `description`, `quantity`, `price`) VALUES ('".$ItemName."', '".$ItemDesc."', ".$Quantity.", ".$Price.")";
 	
 	if ($db->query($query) === TRUE){
 		echo "New item added successfully.";
